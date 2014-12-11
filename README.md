@@ -3,7 +3,7 @@
 
 A simple chat demo for socket.io
 
-Fork of https://github.com/Automattic/socket.io/tree/master/examples/chat
+Fork of https://github.com/Automattic/socket.io/tree/master/examples/chat with add multiroom support.
 
 ## How to use
 
