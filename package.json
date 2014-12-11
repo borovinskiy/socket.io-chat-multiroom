@@ -1,0 +1,14 @@
+{
+  "name": "socket.io-chat-multiroom",
+  "version": "0.0.1",
+  "description": "A simple chat client using socket.io with room support",
+  "main": "index.js",
+  "author": "Grant Timmerman, Arsen Borovinskiy",
+  "private": true,
+  "license": "BSD",
+  "dependencies": 
+    {
+    "express": "3.4.8"
+    , "socket.io": "latest"
+    }
+}
