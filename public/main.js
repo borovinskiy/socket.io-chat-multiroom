@@ -171,7 +171,7 @@ $(function() {
     if (connected) {
       if (!typing) {
         typing = true;
-        socket.emit('typing');
+        socket.emit('typing',$channel);
       }
       lastTypingTime = (new Date()).getTime();
 
@@ -179,7 +179,7 @@ $(function() {
         var typingTimer = (new Date()).getTime();
         var timeDiff = typingTimer - lastTypingTime;
         if (timeDiff >= TYPING_TIMER_LENGTH && typing) {
-          socket.emit('stop typing');
+          socket.emit('stop typing',$channel);
           typing = false;
         }
       }, TYPING_TIMER_LENGTH);
@@ -216,7 +216,7 @@ $(function() {
     if (event.which === 13) {
       if (username) {
         sendMessage();
-        socket.emit('stop typing');
+        socket.emit('stop typing',$channel);
         typing = false;
       } else {
         setUsername();
@@ -275,7 +275,9 @@ $(function() {
 
   // Whenever the server emits 'typing', show the typing message
   socket.on('typing', function (data) {
-    addChatTyping(data);
+    if (data.channel == $channel) {
+      addChatTyping(data);
+    }
   });
 
   // Whenever the server emits 'stop typing', kill the typing message

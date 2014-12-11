@@ -49,16 +49,18 @@ io.on('connection', function (socket) {
   });
 
   // when the client emits 'typing', we broadcast it to others
-  socket.on('typing', function () {
+  socket.on('typing', function (channel) {
     socket.broadcast.emit('typing', {
-      username: socket.username
+      username: socket.username,
+      channel: channel
     });
   });
 
   // when the client emits 'stop typing', we broadcast it to others
-  socket.on('stop typing', function () {
+  socket.on('stop typing', function (channel) {
     socket.broadcast.emit('stop typing', {
-      username: socket.username
+      username: socket.username,
+      channel: channel
     });
   });
 
