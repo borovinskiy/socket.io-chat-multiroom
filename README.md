@@ -19,7 +19,9 @@ a port by supplying the `PORT` env variable.
 
 ## Rooms support
 
+```
 http://localhost:3000/#channel=room_name
+```
 
 if #channel is not set, room set as location.href
 
